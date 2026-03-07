@@ -15,15 +15,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Simulação de verificação
             if (email === usuarioCorreto && password === senhaCorreta) {
-                alert("Login realizado com sucesso! Bem-vindo ao SaberHub.");
+                alert("Login realizado com sucesso! Bem-vindo ao portal de voluntariado.");
                 
-                // Fecha o modal após o sucesso (usando a instância do Bootstrap 5)
+                // Fecha o modal do Bootstrap antes de sair da página
                 const modalElement = document.getElementById('loginModal');
                 const modalInstance = bootstrap.Modal.getInstance(modalElement);
-                modalInstance.hide();
+                if (modalInstance) {
+                    modalInstance.hide();
+                }
 
-                // Aqui você pode redirecionar ou liberar a função de postar aula
-                console.log("Usuário autenticado:", email);
+                window.location.href = "upload.html"; 
+
             } else {
                 alert("E-mail ou senha incorretos. Tente novamente.");
                 // Opcional: limpa o campo de senha em caso de erro

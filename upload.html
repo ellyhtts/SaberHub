@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaberHub - Enviar Material</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            background-color: var(--sh-light-bg); /* Utiliza a variável do style.css */
+        }
+
+        .upload-card {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #eaeaea;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        /* Estilização da área de upload baseada na imagem enviada */
+        .drop-zone {
+            border: 2px dashed #b2d7ef;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            background-color: #f8fbfe;
+            cursor: pointer;
+            transition: 0.3s;
+            color: var(--sh-gray);
+        }
+
+        .drop-zone:hover {
+            background-color: #f0f7ff;
+            border-color: var(--sh-blue);
+        }
+
+        .upload-icon {
+            font-size: 3.5rem;
+            color: var(--sh-blue);
+            margin-bottom: 10px;
+        }
+
+        /* Botão estilizado com o degradê da imagem */
+        .btn-enviar-material {
+            background: linear-gradient(90deg, #4ecdc4, #556270);
+            color: white;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            width: 100%;
+            margin-top: 15px;
+            transition: opacity 0.3s;
+        }
+
+        .btn-enviar-material:hover {
+            opacity: 0.9;
+            color: white;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--sh-dark);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="logo-container">
+        <h1 class="logo-text">
+            <span class="text-saber">Saber</span><span class="text-hub">Hub</span>
+        </h1>
+        <span class="logo-subtitle">Conhecimento Conectado</span>
+    </header>
+
+    <main class="container">
+        <div class="upload-card">
+            <h4 class="text-center fw-bold mb-4">Enviar material</h4>
+            
+            <div class="drop-zone mb-4" id="dropZone">
+                <i class="bi bi-cloud-arrow-up upload-icon"></i>
+                <p class="mb-0">Clique ou arraste seu arquivo aqui</p>
+                <input type="file" id="fileInput" hidden>
+            </div>
+
+            <form id="uploadForm">
+                <div class="mb-3">
+                    <label for="titulo" class="form-label">Título do conteúdo</label>
+                    <input type="text" class="form-control shadow-none" id="titulo" placeholder="Ex: Resumo de Biologia" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="descricao" class="form-label">Descrição</label>
+                    <textarea class="form-control shadow-none" id="descricao" rows="4" placeholder="Explique sobre o material..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-enviar-material">Enviar arquivo</button>
+            </form>
+
+            <div class="text-center mt-3">
+                <a href="Index.html" class="link-ver-todos">
+                    <i class="bi bi-arrow-left"></i> Voltar ao início
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    const dropZone = document.getElementById('dropZone');
+    const fileInput = document.getElementById('fileInput');
+
+    dropZone.addEventListener('click', () => fileInput.click());
+
+    fileInput.addEventListener('change', () => {
+        if (fileInput.files.length > 0) {
+            // Atualiza o texto para mostrar o nome do ficheiro selecionado
+            dropZone.querySelector('p').innerHTML = `<strong>Arquivo:</strong> ${fileInput.files[0].name}`;
+        }
+    });
+
+    
+    document.getElementById('uploadForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Cria o objeto com os dados do formulário
+        const novoMaterial = {
+            titulo: document.getElementById('titulo').value,
+            descricao: document.getElementById('descricao').value,
+            autor: "Admin", // Nome fixo para a demonstração
+            data: new Date().toLocaleDateString('pt-BR')
+        };
+
+        // Recupera a lista atual do "banco de dados" ou cria uma vazia
+        const materiaisSalvos = JSON.parse(localStorage.getItem('materiaisSaberHub')) || [];
+        
+        // Adiciona o novo material ao array
+        materiaisSalvos.push(novoMaterial);
+        
+        // Guarda de volta no LocalStorage
+        localStorage.setItem('materiaisSaberHub', JSON.stringify(materiaisSalvos));
+
+        alert('Material enviado com sucesso!');
+        
+        // Redireciona para a página inicial onde o item aparecerá na lista
+        window.location.href = "Index.html";
+    });
+</script>
+</body>
+</html>

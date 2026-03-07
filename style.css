@@ -4,118 +4,127 @@ margin:0;
 background:#f3f6fb;
 }
 
+/* =========================================================
+   HEADER & NAV (Globais - Usado em todas as páginas)
+   ========================================================= */
+.logo-container { text-align: center; padding: 2rem 0; }
+.logo-text { font-size: 2.5rem; font-weight: 700; margin-bottom: 0; line-height: 1; }
+.text-saber { color: #007bc0; }
+.text-hub { color: #7cb342; }
+.logo-subtitle { font-size: 0.85rem; letter-spacing: 1.5px; color: #666; text-transform: uppercase; }
 
-/* HEADER */
+.top-nav { border-top: 1px solid #eaeaea; border-bottom: 1px solid #eaeaea; padding: 10px 0; }
+.nav-link-custom { color: var(--sh-gray); font-weight: 500; text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color 0.3s;}
+.nav-link-custom:hover { color: var(--sh-blue); }
+.btn-postar { background-color: #4a90e2; color: white; font-weight: 500; border-radius: 6px; padding: 8px 20px; border: none; transition: background-color 0.3s; }
+.btn-postar:hover { background-color: #357abd; color: white; }
 
-.topbar{
 
-display:flex;
-justify-content:space-between;
-align-items:center;
+/* =========================================================
+   PÁGINA: SOBRE O PROJETO (StartProject.html)
+   ========================================================= */
 
-background:white;
+/* Cards Coloridos Superiores */
+.feature-card {
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+}
+.card-header-custom {
+    color: white;
+    padding: 25px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.card-header-custom h5 { margin-top: 10px; margin-bottom: 0; font-weight: 600; font-size: 1.1rem; }
+.bg-sh-blue { background-color: #4a90e2; }
+.bg-sh-green { background-color: var(--sh-green); }
+.bg-sh-orange { background-color: var(--sh-orange); }
 
-padding:12px 30px;
+.card-body-custom {
+    background-color: white;
+    padding: 20px 15px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-body-custom p { margin: 0; font-size: 0.9rem; color: #666; line-height: 1.5; }
 
-box-shadow:0 2px 10px rgba(0,0,0,0.05);
-
-position:sticky;
-top:0;
-z-index:100;
-
+/* CORREÇÃO DO BUG: Seção da Unex e Imagem dos Estudantes */
+.unex-image-wrapper {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    height: 100%;
+    width: 100%; /* Corrigido de max-width: 80% para preencher todo o espaço disponível */
+    min-height: 350px;
+    display: flex;
+}
+.unex-image-wrapper img {
+    width: 100%;
+    height: 100%; /* Garante que a imagem preencha o contêiner */
+    object-fit: cover;
+    object-position: center;
 }
 
-.logo-area img{
+/* Banner de Voluntariado Centralizado e Retangular */
+.cta-banner-centered {
+    background: linear-gradient(135deg, #6cbf6c, #43a047);
+    border-radius: 12px;
+    position: relative;
+}
+.cta-banner-centered i {
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
 
-height:45px;
-
+/* Estilos do Formulário de Sugestões */
+.sugestao-section .card-header {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.sugestao-section .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    padding: 10px 15px;
+}
+.sugestao-section .form-control:focus {
+    border-color: var(--sh-blue);
+    box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
 }
 
 
-/* BUSCA */
+/* =========================================================
+   PÁGINA: HOME / INDEX (Index.html) - Estilos Restaurados
+   ========================================================= */
 
-.search input{
+.hero-section { padding: 3rem 0; }
+.hero-title { font-weight: 700; font-size: 2.2rem; }
+.hero-subtitle { color: var(--sh-gray); font-size: 1rem; margin-bottom: 2rem; }
 
-padding:10px 18px;
+.search-wrapper { max-width: 600px; margin: 0 auto; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-radius: 8px; overflow: hidden; border: 1px solid #eaeaea; }
+.search-wrapper input { border: none; padding: 15px 20px; box-shadow: none !important; }
+.search-wrapper .btn-search { background-color: var(--sh-green); color: white; border: none; padding: 0 25px; transition: background-color 0.3s; }
+.search-wrapper .btn-search:hover { background-color: #4cae4c; }
 
-border-radius:20px;
-
-border:1px solid #ddd;
-
-width:250px;
-
-font-family:'Poppins',sans-serif;
-
-}
-
-
-
-/* LAYOUT */
-
-.layout{
-
-display:grid;
-grid-template-columns:220px 1fr 260px;
-gap:20px;
-
-padding:30px;
-
-}
-
-
-
-/* SIDEBAR */
-
-.sidebar{
-
-background:white;
-border-radius:12px;
-padding:20px;
-
-box-shadow:0 4px 10px rgba(0,0,0,0.05);
-
-}
-
-.sidebar ul{
-
-list-style:none;
-padding:0;
-
-}
-
-.sidebar li{
-
-padding:10px 0;
-cursor:pointer;
-
-}
-
-.add-file{
-
-margin-top:15px;
-
-background:#2fa66f;
-color:white;
-
-border:none;
-padding:10px;
-border-radius:8px;
-
-width:100%;
-
-}
-
-
-
-/* FEED */
-
-.feed{
-
-display:flex;
-flex-direction:column;
-gap:20px;
-
-}
+/* Carrossel de Categorias */
+.carousel-wrapper { position: relative; padding: 0 40px; }
+.carousel-track-container { overflow: hidden; width: 100%; }
+.carousel-track { display: flex; gap: 20px; transition: transform 0.4s ease-in-out; }
+.cat-card-wrapper { flex: 0 0 calc(25% - 15px); min-width: calc(25% - 15px); }
+@media (max-width: 768px) { .cat-card-wrapper { flex: 0 0 calc(50% - 10px); min-width: calc(50% - 10px); } }
+@media (max-width: 480px) { .cat-card-wrapper { flex: 0 0 100%; min-width: 100%; } }
 
 .create-post{
 
@@ -256,4 +265,50 @@ display:flex;
 align-items:center;
 gap:10px;
 
+}
+/* Layout de Três Colunas */
+.feed-container {
+    display: grid;
+    grid-template-columns: 250px 1fr 300px; /* Define o tamanho da primeira coluna */
+    gap: 20px;
+    padding-top: 20px;
+}
+
+/* Menu de Navegação */
+.nav-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-menu li a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px;
+    color: var(--sh-dark);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.nav-menu li a:hover, .nav-menu li a.active {
+    background-color: #eef4fb;
+    color: var(--sh-blue);
+}
+
+/* Esconder colunas em telas pequenas */
+@media (max-width: 992px) {
+    .feed-container {
+        grid-template-columns: 1fr;
+    }
+    .sidebar-left, .sidebar-right {
+        display: none;
+    }
+}
+
+.logo-container-perfil { 
+    padding: 0.5rem 0 !important; 
+}
+.logo-img-perfil { 
+    max-width: 160px !important; 
 }
