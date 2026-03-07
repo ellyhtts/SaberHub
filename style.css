@@ -18,10 +18,15 @@ body {
    HEADER & NAV (Globais - Usado em todas as páginas)
    ========================================================= */
 .logo-container { text-align: center; padding: 2rem 0; }
-.logo-text { font-size: 2.5rem; font-weight: 700; margin-bottom: 0; line-height: 1; }
-.text-saber { color: #007bc0; }
-.text-hub { color: #7cb342; }
-.logo-subtitle { font-size: 0.85rem; letter-spacing: 1.5px; color: #666; text-transform: uppercase; }
+.logo-img {
+    max-width: 280px; /* Controla o tamanho máximo da logo */
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.02); /* Dá um leve efeito de zoom ao passar o mouse */
+}
 
 .top-nav { border-top: 1px solid #eaeaea; border-bottom: 1px solid #eaeaea; padding: 10px 0; }
 .nav-link-custom { color: var(--sh-gray); font-weight: 500; text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color 0.3s;}
