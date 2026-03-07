@@ -14,15 +14,25 @@ body {
     margin: 0;
 }
 
-/* Cabeçalho Compacto */
-.logo-container-perfil {
+/* Estilização da Logo no Perfil */
+.logo-container {
     text-align: center;
-    padding: 0.5rem 0 !important;
+    padding: 20px 0;
+    background-color: #ffffff;
+    border-bottom: 2px solid var(--sh-light-bg); /* Mantém a linha sutil do SaberHub */
 }
 
-.logo-img-perfil {
-    max-width: 160px !important;
+.logo-img-unex {
+    max-width: 220px; /* Tamanho ideal para visualização */
     height: auto;
+    display: inline-block;
+    visibility: visible !important;
+}
+
+/* Garantindo que o container pai não oculte a imagem */
+header {
+    display: block !important;
+    opacity: 1 !important;
 }
 
 /* Layout de Três Colunas */
