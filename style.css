@@ -14,18 +14,16 @@ body {
     background-color: #fdfdfd;
 }
 
-/* =========================================================
-   HEADER & NAV (Globais - Usado em todas as páginas)
-   ========================================================= */
+
 .logo-container { text-align: center; padding: 2rem 0; }
 .logo-img {
-    max-width: 280px; /* Controla o tamanho máximo da logo */
+    max-width: 280px; 
     height: auto;
     transition: transform 0.3s ease;
 }
 
 .logo-img:hover {
-    transform: scale(1.02); /* Dá um leve efeito de zoom ao passar o mouse */
+    transform: scale(1.02); 
 }
 
 .top-nav { border-top: 1px solid #eaeaea; border-bottom: 1px solid #eaeaea; padding: 10px 0; }
@@ -34,12 +32,6 @@ body {
 .btn-postar { background-color: #4a90e2; color: white; font-weight: 500; border-radius: 6px; padding: 8px 20px; border: none; transition: background-color 0.3s; }
 .btn-postar:hover { background-color: #357abd; color: white; }
 
-
-/* =========================================================
-   PÁGINA: SOBRE O PROJETO (StartProject.html)
-   ========================================================= */
-
-/* Cards Coloridos Superiores */
 .feature-card {
     border: 1px solid #eaeaea;
     border-radius: 8px;
@@ -71,24 +63,22 @@ body {
 }
 .card-body-custom p { margin: 0; font-size: 0.9rem; color: #666; line-height: 1.5; }
 
-/* CORREÇÃO DO BUG: Seção da Unex e Imagem dos Estudantes */
 .unex-image-wrapper {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     height: 100%;
-    width: 100%; /* Corrigido de max-width: 80% para preencher todo o espaço disponível */
+    width: 100%; 
     min-height: 350px;
     display: flex;
 }
 .unex-image-wrapper img {
     width: 100%;
-    height: 100%; /* Garante que a imagem preencha o contêiner */
+    height: 100%; 
     object-fit: cover;
     object-position: center;
 }
 
-/* Banner de Voluntariado Centralizado e Retangular */
 .cta-banner-centered {
     background: linear-gradient(135deg, #6cbf6c, #43a047);
     border-radius: 12px;
@@ -104,7 +94,6 @@ body {
     justify-content: center;
 }
 
-/* Estilos do Formulário de Sugestões */
 .sugestao-section .card-header {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -119,11 +108,6 @@ body {
     box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
 }
 
-
-/* =========================================================
-   PÁGINA: HOME / INDEX (Index.html) - Estilos Restaurados
-   ========================================================= */
-
 .hero-section { padding: 3rem 0; }
 .hero-title { font-weight: 700; font-size: 2.2rem; }
 .hero-subtitle { color: var(--sh-gray); font-size: 1rem; margin-bottom: 2rem; }
@@ -133,7 +117,6 @@ body {
 .search-wrapper .btn-search { background-color: var(--sh-green); color: white; border: none; padding: 0 25px; transition: background-color 0.3s; }
 .search-wrapper .btn-search:hover { background-color: #4cae4c; }
 
-/* Carrossel de Categorias */
 .carousel-wrapper { position: relative; padding: 0 40px; }
 .carousel-track-container { overflow: hidden; width: 100%; }
 .carousel-track { display: flex; gap: 20px; transition: transform 0.4s ease-in-out; }
@@ -162,11 +145,9 @@ body {
 .dot { width: 8px; height: 8px; border-radius: 50%; background-color: #ddd; cursor: pointer; transition: background-color 0.3s;}
 .dot.active { background-color: var(--sh-green); }
 
-/* Banner Secundário (Home) */
 .cta-banner { background: linear-gradient(135deg, #66bb6a, #43a047); border-radius: 12px; color: white; padding: 20px 30px; display: flex; align-items: center; justify-content: space-between; margin-top: 2rem; position: relative; overflow: hidden; }
 .cta-icon { background: rgba(255,255,255,0.2); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-right: 15px; }
 
-/* Listagens de Aulas e Materiais */
 .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 1px solid #eaeaea; padding-bottom: 10px; }
 .section-header h4 { font-weight: 600; font-size: 1.2rem; margin: 0; }
 .link-ver-todos { color: #4a90e2; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
@@ -190,7 +171,6 @@ body {
 .material-info h6 { margin: 0 0 3px; font-size: 0.95rem; font-weight: 500;}
 .material-info p { margin: 0; font-size: 0.8rem; color: #888; }
 
-/* Rodapé (Footer) */
 .sh-footer { background-color: #f8f9fa; border-top: 1px solid #eaeaea; color: var(--sh-dark); }
 .footer-title { font-weight: 600; margin-bottom: 1.2rem; color: var(--sh-dark); }
 .footer-links { padding: 0; list-style: none; }
@@ -200,10 +180,6 @@ body {
 .social-links a { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background-color: #e9ecef; color: #495057; border-radius: 50%; text-decoration: none; transition: all 0.3s; }
 .social-links a:hover { background-color: #007bc0; color: white; transform: translateY(-3px); }
 
-
-/* =========================================================
-   ELEMENTOS FLUTUANTES
-   ========================================================= */
 #btnVoltarTopo {
     position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px;
     border-radius: 50%; background-color: var(--sh-blue); color: white;
