@@ -15,13 +15,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert("Login realizado com sucesso! Bem-vindo ao SaberHub.");
                 
                 const modalElement = document.getElementById('loginModal');
-                const modalInstance = bootstrap.Modal.getInstance(modalElement);
+                
+                let modalInstance = bootstrap.Modal.getInstance(modalElement);
+                if (!modalInstance) {
+                    modalInstance = new bootstrap.Modal(modalElement);
+                }
+                
                 modalInstance.hide();
-
                 console.log("Usuário autenticado:", email);
+                
             } else {
                 alert("E-mail ou senha incorretos. Tente novamente.");
-
                 document.getElementById('passwordInput').value = "";
             }
         });
