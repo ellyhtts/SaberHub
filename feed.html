@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<title>SaberHub Feed</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header class="topbar">
+
+<div class="logo-area">
+<img src="logo.png" alt="SaberHub">
+</div>
+
+<div class="search">
+<input type="text" placeholder="Buscar...">
+</div>
+
+</header>
+
+
+<div class="layout">
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<ul>
+
+<li>🏠 Feed</li>
+<li>📁 Meus Arquivos</li>
+<li>❤️ Favoritos</li>
+<li>📚 Categorias</li>
+
+</ul>
+
+<button class="add-file">
++ Adicionar arquivo
+</button>
+
+</aside>
+
+
+
+<!-- FEED -->
+
+<main class="feed">
+
+<div class="create-post">
+
+<input placeholder="Compartilhar um novo material...">
+
+<button>Enviar</button>
+
+</div>
+
+
+<div class="post">
+
+<div class="post-header">
+
+<img src="https://i.pravatar.cc/40">
+
+<div>
+<b>Mariana Souza</b>
+<p>10 minutos atrás</p>
+</div>
+
+</div>
+
+<h3>Resumo de Biologia: Reinos dos Seres Vivos</h3>
+
+<p>Resumo sobre os cinco reinos dos seres vivos.</p>
+
+<div class="post-actions">
+
+<span onclick="curtir(this)">❤️ 23</span>
+<span onclick="comentar()">💬 7</span>
+
+<button class="download" onclick="baixar()">
+Baixar
+</button>
+
+</div>
+
+</div>
+
+
+
+<div class="post">
+
+<div class="post-header">
+
+<img src="https://i.pravatar.cc/41">
+
+<div>
+<b>Lucas Almeida</b>
+<p>30 minutos atrás</p>
+</div>
+
+</div>
+
+<h3>Resumo das Guerras Mundiais</h3>
+
+<p>Material resumido de história.</p>
+
+<div class="post-actions">
+
+<span onclick="curtir(this)">❤️ 12</span>
+<span onclick="comentar()">💬 4</span>
+
+<button class="download" onclick="baixar()">
+Baixar
+</button>
+
+</div>
+
+</div>
+
+</main>
+
+
+
+<!-- COLUNA DIREITA -->
+
+<aside class="right">
+
+<div class="card">
+
+<h4>Categorias populares</h4>
+
+<ul>
+
+<li>📘 Resumo</li>
+<li>📝 Exercício</li>
+<li>📄 Prova</li>
+<li>📚 Apostila</li>
+
+</ul>
+
+</div>
+
+
+<div class="card">
+
+<h4>Usuários recomendados</h4>
+
+<div class="user">
+
+<img src="https://i.pravatar.cc/30">
+<span>Mariana Souza</span>
+
+</div>
+
+</div>
+
+</aside>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

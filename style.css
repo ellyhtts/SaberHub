@@ -1,215 +1,259 @@
-:root {
-    --sh-blue: #3498db;
-    --sh-green: #5cb85c;
-    --sh-orange: #fca830;
-    --sh-dark: #333333;
-    --sh-gray: #777777;
-    --sh-light-bg: #f8f9fa;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    color: var(--sh-dark);
-    position: relative;
-    background-color: #fdfdfd;
-}
-
-/* =========================================================
-   HEADER & NAV (Globais - Usado em todas as páginas)
-   ========================================================= */
-.logo-container { text-align: center; padding: 2rem 0; }
-.logo-text { font-size: 2.5rem; font-weight: 700; margin-bottom: 0; line-height: 1; }
-.text-saber { color: #007bc0; }
-.text-hub { color: #7cb342; }
-.logo-subtitle { font-size: 0.85rem; letter-spacing: 1.5px; color: #666; text-transform: uppercase; }
-
-.top-nav { border-top: 1px solid #eaeaea; border-bottom: 1px solid #eaeaea; padding: 10px 0; }
-.nav-link-custom { color: var(--sh-gray); font-weight: 500; text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color 0.3s;}
-.nav-link-custom:hover { color: var(--sh-blue); }
-.btn-postar { background-color: #4a90e2; color: white; font-weight: 500; border-radius: 6px; padding: 8px 20px; border: none; transition: background-color 0.3s; }
-.btn-postar:hover { background-color: #357abd; color: white; }
-
-
-/* =========================================================
-   PÁGINA: SOBRE O PROJETO (StartProject.html)
-   ========================================================= */
-
-/* Cards Coloridos Superiores */
-.feature-card {
-    border: 1px solid #eaeaea;
-    border-radius: 8px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.02);
-}
-.card-header-custom {
-    color: white;
-    padding: 25px 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.card-header-custom h5 { margin-top: 10px; margin-bottom: 0; font-weight: 600; font-size: 1.1rem; }
-.bg-sh-blue { background-color: #4a90e2; }
-.bg-sh-green { background-color: var(--sh-green); }
-.bg-sh-orange { background-color: var(--sh-orange); }
-
-.card-body-custom {
-    background-color: white;
-    padding: 20px 15px;
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.card-body-custom p { margin: 0; font-size: 0.9rem; color: #666; line-height: 1.5; }
-
-/* CORREÇÃO DO BUG: Seção da Unex e Imagem dos Estudantes */
-.unex-image-wrapper {
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    height: 100%;
-    width: 100%; /* Corrigido de max-width: 80% para preencher todo o espaço disponível */
-    min-height: 350px;
-    display: flex;
-}
-.unex-image-wrapper img {
-    width: 100%;
-    height: 100%; /* Garante que a imagem preencha o contêiner */
-    object-fit: cover;
-    object-position: center;
-}
-
-/* Banner de Voluntariado Centralizado e Retangular */
-.cta-banner-centered {
-    background: linear-gradient(135deg, #6cbf6c, #43a047);
-    border-radius: 12px;
-    position: relative;
-}
-.cta-banner-centered i {
-    background: rgba(255,255,255,0.2);
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Estilos do Formulário de Sugestões */
-.sugestao-section .card-header {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-}
-.sugestao-section .form-control {
-    border: 1px solid #ced4da;
-    border-radius: 6px;
-    padding: 10px 15px;
-}
-.sugestao-section .form-control:focus {
-    border-color: var(--sh-blue);
-    box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+body{
+font-family:'Poppins',sans-serif;
+margin:0;
+background:#f3f6fb;
 }
 
 
-/* =========================================================
-   PÁGINA: HOME / INDEX (Index.html) - Estilos Restaurados
-   ========================================================= */
+/* HEADER */
 
-.hero-section { padding: 3rem 0; }
-.hero-title { font-weight: 700; font-size: 2.2rem; }
-.hero-subtitle { color: var(--sh-gray); font-size: 1rem; margin-bottom: 2rem; }
+.topbar{
 
-.search-wrapper { max-width: 600px; margin: 0 auto; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-radius: 8px; overflow: hidden; border: 1px solid #eaeaea; }
-.search-wrapper input { border: none; padding: 15px 20px; box-shadow: none !important; }
-.search-wrapper .btn-search { background-color: var(--sh-green); color: white; border: none; padding: 0 25px; transition: background-color 0.3s; }
-.search-wrapper .btn-search:hover { background-color: #4cae4c; }
+display:flex;
+justify-content:space-between;
+align-items:center;
 
-/* Carrossel de Categorias */
-.carousel-wrapper { position: relative; padding: 0 40px; }
-.carousel-track-container { overflow: hidden; width: 100%; }
-.carousel-track { display: flex; gap: 20px; transition: transform 0.4s ease-in-out; }
-.cat-card-wrapper { flex: 0 0 calc(25% - 15px); min-width: calc(25% - 15px); }
-@media (max-width: 768px) { .cat-card-wrapper { flex: 0 0 calc(50% - 10px); min-width: calc(50% - 10px); } }
-@media (max-width: 480px) { .cat-card-wrapper { flex: 0 0 100%; min-width: 100%; } }
+background:white;
 
-.cat-card { border: 1px solid #eaeaea; border-radius: 8px; overflow: hidden; text-align: center; height: 100%; background: #fff; transition: transform 0.2s, box-shadow 0.2s; }
-.cat-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
-.cat-img-box { height: 140px; width: 100%; overflow: hidden; }
-.cat-img-box img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+padding:12px 30px;
 
-.cat-medicina h5 { color: #2980b9; font-weight: 600; margin-top: 15px; }
-.cat-direito h5 { color: #2e7d32; font-weight: 600; margin-top: 15px; }
-.cat-psicologia h5 { color: #ef6c00; font-weight: 600; margin-top: 15px; }
-.cat-arquitetura h5 { color: #0277bd; font-weight: 600; margin-top: 15px; }
-.cat-sistemas h5 { color: #8e44ad; font-weight: 600; margin-top: 15px; }
-.cat-card p { font-size: 0.85rem; color: #666; padding: 0 10px 15px; }
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
 
-.btn-carousel { position: absolute; top: 50%; transform: translateY(-50%); background: white; border: 1px solid #eaeaea; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); color: #555; cursor: pointer; z-index: 10; transition: all 0.3s; }
-.btn-carousel:hover { background: #f8f9fa; color: #333; }
-.btn-prev { left: 0; }
-.btn-next { right: 0; }
+position:sticky;
+top:0;
+z-index:100;
 
-.carousel-dots { display: flex; justify-content: center; gap: 5px; margin: 20px 0; }
-.dot { width: 8px; height: 8px; border-radius: 50%; background-color: #ddd; cursor: pointer; transition: background-color 0.3s;}
-.dot.active { background-color: var(--sh-green); }
-
-/* Banner Secundário (Home) */
-.cta-banner { background: linear-gradient(135deg, #66bb6a, #43a047); border-radius: 12px; color: white; padding: 20px 30px; display: flex; align-items: center; justify-content: space-between; margin-top: 2rem; position: relative; overflow: hidden; }
-.cta-icon { background: rgba(255,255,255,0.2); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-right: 15px; }
-
-/* Listagens de Aulas e Materiais */
-.section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 1px solid #eaeaea; padding-bottom: 10px; }
-.section-header h4 { font-weight: 600; font-size: 1.2rem; margin: 0; }
-.link-ver-todos { color: #4a90e2; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
-.link-ver-todos:hover { color: #357abd; }
-
-.aula-card { border: 1px solid #eaeaea; border-radius: 8px; overflow: hidden; margin-bottom: 15px; }
-.aula-header { padding: 15px; display: flex; align-items: center; gap: 15px; color: white; }
-.aula-header h6 { margin: 0; font-size: 1rem; font-weight: 600; line-height: 1.2; }
-
-.bg-matematica { background-color: #5fa8d3; }
-.bg-direito { background-color: #7cb342; }
-.bg-psicologia { background-color: #f6a821; }
-
-.aula-body { padding: 15px; }
-.aula-body p { font-size: 0.85rem; color: #555; margin-bottom: 15px; min-height: 40px; }
-.aula-author { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: #777;}
-.aula-author img { width: 24px; height: 24px; border-radius: 50%; }
-
-.material-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; }
-.folder-icon { background-color: #81c784; color: white; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
-.material-info h6 { margin: 0 0 3px; font-size: 0.95rem; font-weight: 500;}
-.material-info p { margin: 0; font-size: 0.8rem; color: #888; }
-
-/* Rodapé (Footer) */
-.sh-footer { background-color: #f8f9fa; border-top: 1px solid #eaeaea; color: var(--sh-dark); }
-.footer-title { font-weight: 600; margin-bottom: 1.2rem; color: var(--sh-dark); }
-.footer-links { padding: 0; list-style: none; }
-.footer-links li { margin-bottom: 0.6rem; }
-.footer-links a { color: #6c757d; text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease, padding-left 0.3s ease; }
-.footer-links a:hover { color: #007bc0; padding-left: 5px; }
-.social-links a { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background-color: #e9ecef; color: #495057; border-radius: 50%; text-decoration: none; transition: all 0.3s; }
-.social-links a:hover { background-color: #007bc0; color: white; transform: translateY(-3px); }
-
-
-/* =========================================================
-   ELEMENTOS FLUTUANTES
-   ========================================================= */
-#btnVoltarTopo {
-    position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px;
-    border-radius: 50%; background-color: var(--sh-blue); color: white;
-    border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.15); font-size: 1.5rem;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer; opacity: 0; visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-    z-index: 1000;
 }
-#btnVoltarTopo.mostrar { opacity: 1; visibility: visible; }
-#btnVoltarTopo:hover {
-    background-color: #2980b9;
-    transform: translateY(-5px);
+
+.logo-area img{
+
+height:45px;
+
+}
+
+
+/* BUSCA */
+
+.search input{
+
+padding:10px 18px;
+
+border-radius:20px;
+
+border:1px solid #ddd;
+
+width:250px;
+
+font-family:'Poppins',sans-serif;
+
+}
+
+
+
+/* LAYOUT */
+
+.layout{
+
+display:grid;
+grid-template-columns:220px 1fr 260px;
+gap:20px;
+
+padding:30px;
+
+}
+
+
+
+/* SIDEBAR */
+
+.sidebar{
+
+background:white;
+border-radius:12px;
+padding:20px;
+
+box-shadow:0 4px 10px rgba(0,0,0,0.05);
+
+}
+
+.sidebar ul{
+
+list-style:none;
+padding:0;
+
+}
+
+.sidebar li{
+
+padding:10px 0;
+cursor:pointer;
+
+}
+
+.add-file{
+
+margin-top:15px;
+
+background:#2fa66f;
+color:white;
+
+border:none;
+padding:10px;
+border-radius:8px;
+
+width:100%;
+
+}
+
+
+
+/* FEED */
+
+.feed{
+
+display:flex;
+flex-direction:column;
+gap:20px;
+
+}
+
+.create-post{
+
+background:white;
+
+padding:15px;
+
+border-radius:12px;
+
+display:flex;
+gap:10px;
+
+}
+
+.create-post input{
+
+flex:1;
+
+padding:10px;
+
+border-radius:8px;
+border:1px solid #ddd;
+
+}
+
+.create-post button{
+
+background:#2fa66f;
+
+color:white;
+
+border:none;
+
+padding:10px 20px;
+
+border-radius:8px;
+
+}
+
+
+
+/* POST */
+
+.post{
+
+background:white;
+
+padding:20px;
+
+border-radius:12px;
+
+box-shadow:0 4px 10px rgba(0,0,0,0.05);
+
+}
+
+.post-header{
+
+display:flex;
+align-items:center;
+gap:10px;
+
+margin-bottom:10px;
+
+}
+
+.post-header img{
+
+border-radius:50%;
+
+}
+
+.post-actions{
+
+margin-top:10px;
+
+display:flex;
+align-items:center;
+gap:15px;
+
+}
+
+.download{
+
+margin-left:auto;
+
+background:#3d73c8;
+
+color:white;
+
+border:none;
+
+padding:8px 15px;
+
+border-radius:8px;
+
+}
+
+
+
+/* RIGHT */
+
+.right{
+
+display:flex;
+flex-direction:column;
+gap:20px;
+
+}
+
+.card{
+
+background:white;
+
+padding:15px;
+
+border-radius:12px;
+
+box-shadow:0 4px 10px rgba(0,0,0,0.05);
+
+}
+
+.card ul{
+
+list-style:none;
+padding:0;
+
+}
+
+.card li{
+
+padding:8px 0;
+
+}
+
+.user{
+
+display:flex;
+align-items:center;
+gap:10px;
+
 }
