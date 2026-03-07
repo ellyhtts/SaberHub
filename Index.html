@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaberHub - Conhecimento Conectado</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        :root {
+            --sh-blue: #3498db;
+            --sh-green: #5cb85c;
+            --sh-dark: #333333;
+            --sh-gray: #777777;
+            --sh-light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--sh-dark);
+            position: relative;
+        }
+
+        .logo-container {
+            text-align: center;
+            padding: 2rem 0;
+        }
+        .logo-text {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0;
+            line-height: 1;
+        }
+        .text-saber { color: #007bc0; }
+        .text-hub { color: #7cb342; }
+        .logo-subtitle {
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        .top-nav {
+            border-top: 1px solid #eaeaea;
+            border-bottom: 1px solid #eaeaea;
+            padding: 10px 0;
+        }
+        .nav-link-custom {
+            color: var(--sh-gray);
+            font-weight: 500;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-postar {
+            background-color: #4a90e2;
+            color: white;
+            font-weight: 500;
+            border-radius: 6px;
+            padding: 8px 20px;
+            border: none;
+            transition: background-color 0.3s;
+        }
+        .btn-postar:hover { background-color: #357abd; color: white; }
+
+        .hero-section { padding: 3rem 0; }
+        .hero-title { font-weight: 700; font-size: 2.2rem; }
+        .hero-subtitle { color: var(--sh-gray); font-size: 1rem; margin-bottom: 2rem; }
+        
+        .search-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #eaeaea;
+        }
+        .search-wrapper input {
+            border: none;
+            padding: 15px 20px;
+            box-shadow: none !important;
+        }
+        .search-wrapper .btn-search {
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            padding: 0 25px;
+            transition: background-color 0.3s;
+        }
+        .search-wrapper .btn-search:hover { background-color: #4cae4c; }
+
+        .carousel-wrapper {
+            position: relative;
+            padding: 0 40px; 
+        }
+        .carousel-track-container {
+            overflow: hidden;
+            width: 100%;
+        }
+        .carousel-track {
+            display: flex;
+            gap: 20px;
+            transition: transform 0.4s ease-in-out;
+        }
+        .cat-card-wrapper {
+            flex: 0 0 calc(25% - 15px); 
+            min-width: calc(25% - 15px);
+        }
+        @media (max-width: 768px) {
+            .cat-card-wrapper {
+                flex: 0 0 calc(50% - 10px);
+                min-width: calc(50% - 10px);
+            }
+        }
+        @media (max-width: 480px) {
+            .cat-card-wrapper {
+                flex: 0 0 100%;
+                min-width: 100%;
+            }
+        }
+
+        .cat-card {
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            height: 100%;
+            background: #fff;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        .cat-img-box {
+            height: 140px;
+            width: 100%;
+            overflow: hidden;
+        }
+        .cat-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            object-position: center;
+        }
+
+        .cat-medicina h5 { color: #2980b9; font-weight: 600; margin-top: 15px; }
+        .cat-direito h5 { color: #2e7d32; font-weight: 600; margin-top: 15px; }
+        .cat-psicologia h5 { color: #ef6c00; font-weight: 600; margin-top: 15px; }
+        .cat-arquitetura h5 { color: #0277bd; font-weight: 600; margin-top: 15px; }
+        .cat-sistemas h5 { color: #8e44ad; font-weight: 600; margin-top: 15px; }
+        
+        .cat-card p { font-size: 0.85rem; color: #666; padding: 0 10px 15px; }
+
+        .btn-carousel {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: 1px solid #eaeaea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            color: #555;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s;
+        }
+        .btn-carousel:hover { background: #f8f9fa; color: #333; }
+        .btn-prev { left: 0; }
+        .btn-next { right: 0; }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin: 20px 0;
+        }
+        .dot { width: 8px; height: 8px; border-radius: 50%; background-color: #ddd; cursor: pointer; transition: background-color 0.3s;}
+        .dot.active { background-color: #5cb85c; }
+
+        .cta-banner {
+            background: linear-gradient(135deg, #66bb6a, #43a047);
+            border-radius: 12px;
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-icon {
+            background: rgba(255,255,255,0.2);
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem;
+            margin-right: 15px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #eaeaea;
+            padding-bottom: 10px;
+        }
+        .section-header h4 { font-weight: 600; font-size: 1.2rem; margin: 0; }
+        .link-ver-todos { color: #4a90e2; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
+        .link-ver-todos:hover { color: #357abd; }
+        
+        .aula-card { border: 1px solid #eaeaea; border-radius: 8px; overflow: hidden; margin-bottom: 15px; }
+        .aula-header { padding: 15px; display: flex; align-items: center; gap: 15px; color: white; }
+        .aula-header h6 { margin: 0; font-size: 1rem; font-weight: 600; line-height: 1.2; }
+        
+        .bg-matematica { background-color: #5fa8d3; }
+        .bg-direito { background-color: #7cb342; }
+        .bg-psicologia { background-color: #f6a821; }
+
+        .aula-body { padding: 15px; }
+        .aula-body p { font-size: 0.85rem; color: #555; margin-bottom: 15px; min-height: 40px; }
+        .aula-author { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: #777;}
+        .aula-author img { width: 24px; height: 24px; border-radius: 50%; }
+
+        .material-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; }
+        .folder-icon {
+            background-color: #81c784; color: white; width: 40px; height: 40px;
+            border-radius: 8px; display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; flex-shrink: 0;
+        }
+        .material-info h6 { margin: 0 0 3px; font-size: 0.95rem; font-weight: 500;}
+        .material-info p { margin: 0; font-size: 0.8rem; color: #888; }
+
+        .sh-footer {
+            background-color: #f8f9fa;
+            border-top: 1px solid #eaeaea;
+            color: var(--sh-dark);
+        }
+        .footer-title {
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            color: var(--sh-dark);
+        }
+        .footer-links { padding: 0; list-style: none; }
+        .footer-links li { margin-bottom: 0.6rem; }
+        .footer-links a {
+            color: #6c757d;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease, padding-left 0.3s ease;
+        }
+        .footer-links a:hover {
+            color: #007bc0;
+            padding-left: 5px;
+        }
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: #e9ecef;
+            color: #495057;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .social-links a:hover {
+            background-color: #007bc0;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        #btnVoltarTopo {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--sh-blue);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+            z-index: 1000;
+        }
+        #btnVoltarTopo.mostrar { opacity: 1; visibility: visible; }
+        #btnVoltarTopo:hover {
+            background-color: #2980b9;
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="logo-container">
+        <div style="font-size: 2rem; color: #007bc0; margin-bottom: 5px;">
+            <i class="bi bi-book"></i><i class="bi bi-share text-success" style="font-size: 1.2rem; margin-left: -10px; position: relative; top: -15px;"></i>
+        </div>
+        <h1 class="logo-text"><span class="text-saber">Saber</span><span class="text-hub">Hub</span></h1>
+        <span class="logo-subtitle">Conhecimento Conectado</span>
+    </header>
+
+    <nav class="top-nav">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="#" class="nav-link-custom">
+                <i class="bi bi-house-door-fill fs-5"></i>
+                SOBRE A INICIATIVA DO PROJETO
+            </a>
+            <button class="btn btn-postar">POSTAR AULA VOLUNTÁRIA</button>
+        </div>
+    </nav>
+
+    <main class="container">
+        
+        <section class="hero-section text-center">
+            <h2 class="hero-title">Bem-vindo ao SaberHub!</h2>
+            <p class="hero-subtitle">Encontre cursos, materiais educacionais gratuitos e oportunidades<br>de voluntariado educacional.</p>
+            
+            <div class="input-group search-wrapper mb-5">
+                <span class="input-group-text bg-white border-0 text-muted"><i class="bi bi-search"></i></span>
+                <input type="text" class="form-control" placeholder="Pesquise por cursos e materiais...">
+                <button class="btn btn-search" type="button"><i class="bi bi-search"></i></button>
+            </div>
+        </section>
+
+        <section class="carousel-wrapper pb-4">
+            <button class="btn-carousel btn-prev" id="prevBtn"><i class="bi bi-chevron-left"></i></button>
+            
+            <div class="carousel-track-container">
+                <div class="carousel-track" id="track">
+                    
+                    <div class="cat-card-wrapper">
+                        <div class="cat-card cat-medicina">
+                            <div class="cat-img-box">
+                                <img src="https://images.pexels.com/photos/11623621/pexels-photo-11623621.jpeg?_gl=1*2g60da*_ga*MTA1OTY2MTQ5NS4xNzU5MDA5NjU1*_ga_8JE65Q40S6*czE3NzI4NjAyOTAkbzIyJGcxJHQxNzcyODYxNDI2JGozMiRsMCRoMA.." alt="Medicina">
+                            </div>
+                            <h5>Medicina</h5>
+                            <p>Saiba mais sobre cursos de Medicina.</p>
+                        </div>
+                    </div>
+
+                    <div class="cat-card-wrapper">
+                        <div class="cat-card cat-direito">
+                            <div class="cat-img-box">
+                                <img src="https://images.pexels.com/photos/6077181/pexels-photo-6077181.jpeg?_gl=1*1f5k8j4*_ga*MTA1OTY2MTQ5NS4xNzU5MDA5NjU1*_ga_8JE65Q40S6*czE3NzI4NjAyOTAkbzIyJGcxJHQxNzcyODYyMDQwJGozNSRsMCRoMA.." alt="Direito">
+                            </div>
+                            <h5>Direito</h5>
+                            <p>Explore conteúdos na área de Direito.</p>
+                        </div>
+                    </div>
+
+                    <div class="cat-card-wrapper">
+                        <div class="cat-card cat-psicologia">
+                            <div class="cat-img-box">
+                                <img src="https://images.pexels.com/photos/8849272/pexels-photo-8849272.jpeg?_gl=1*1e177b9*_ga*MTA1OTY2MTQ5NS4xNzU5MDA5NjU1*_ga_8JE65Q40S6*czE3NzI4NjAyOTAkbzIyJGcxJHQxNzcyODYxODE3JGozMSRsMCRoMA.." alt="Psicologia">
+                            </div>
+                            <h5>Psicologia</h5>
+                            <p>Descubra materiais sobre Psicologia.</p>
+                        </div>
+                    </div>
+
+                    <div class="cat-card-wrapper">
+                        <div class="cat-card cat-arquitetura">
+                            <div class="cat-img-box">
+                                <img src="https://images.pexels.com/photos/271667/pexels-photo-271667.jpeg?_gl=1*giqt5z*_ga*MTA1OTY2MTQ5NS4xNzU5MDA5NjU1*_ga_8JE65Q40S6*czE3NzI4NjAyOTAkbzIyJGcxJHQxNzcyODYyMjE0JGoyOCRsMCRoMA.." alt="Arquitetura">
+                            </div>
+                            <h5>Arquitetura</h5>
+                            <p>Confira conteúdos voltados a Arquitetura.</p>
+                        </div>
+                    </div>
+
+                    <div class="cat-card-wrapper">
+                        <div class="cat-card cat-sistemas">
+                            <div class="cat-img-box">
+                                <img src="https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?_gl=1*ax5c7v*_ga*MTA1OTY2MTQ5NS4xNzU5MDA5NjU1*_ga_8JE65Q40S6*czE3NzI4NjAyOTAkbzIyJGcxJHQxNzcyODYyMzQ5JGoyMyRsMCRoMA.." alt="Sistemas de Informação">
+                            </div>
+                            <h5>Sist. Informação</h5>
+                            <p>Explore o mundo da tecnologia e dados.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <button class="btn-carousel btn-next" id="nextBtn"><i class="bi bi-chevron-right"></i></button>
+            
+            <div class="carousel-dots mt-3" id="dotsContainer"></div>
+        </section>
+
+        <section class="cta-banner">
+            <div class="d-flex align-items-center">
+                <div class="cta-icon"><i class="bi bi-check-lg"></i></div>
+                <div>
+                    <h5 class="mb-1 fw-bold">Seja um voluntário educacional!</h5>
+                    <p class="mb-0 fs-6">Transforme vidas compartilhando seu conhecimento com quem precisa.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="row mt-5 mb-5">
+            <div class="col-lg-8">
+                <div class="section-header">
+                    <h4>Últimas Aulas</h4>
+                    <a href="#" class="link-ver-todos">Ver todos</a>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="aula-card">
+                            <div class="aula-header bg-matematica">
+                                <i class="bi bi-calculator fs-3"></i>
+                                <h6>Matemática<br>Básica</h6>
+                            </div>
+                            <div class="aula-body">
+                                <p>Aula voluntária de operações básicas.</p>
+                                <div class="aula-author">
+                                    <img src="https://ui-avatars.com/api/?name=Juliana+Souza&background=random" alt="Juliana">
+                                    <span>Juliana Souza</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="aula-card">
+                            <div class="aula-header bg-direito">
+                                <i class="bi bi-bank fs-3"></i>
+                                <h6>Fundamentos<br>de Direito</h6>
+                            </div>
+                            <div class="aula-body">
+                                <p>Introdução ao Direito Constitucional.</p>
+                                <div class="aula-author">
+                                    <img src="https://ui-avatars.com/api/?name=Felipe+Almeida&background=random" alt="Felipe">
+                                    <span>Felipe Almeida</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="aula-card">
+                            <div class="aula-header bg-psicologia">
+                                <i class="bi bi-person-hearts fs-3"></i>
+                                <h6>Introdução a<br>Psicologia</h6>
+                            </div>
+                            <div class="aula-body">
+                                <p>Explorando conceitos básicos da mente.</p>
+                                <div class="aula-author">
+                                    <img src="https://ui-avatars.com/api/?name=Carla+Martins&background=random" alt="Carla">
+                                    <span>Carla Martins</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="section-header">
+                    <h4>Materiais Recentes</h4>
+                </div>
+                
+                <div class="materiais-list mt-3">
+                    <div class="material-item">
+                        <div class="folder-icon"><i class="bi bi-folder-fill"></i></div>
+                        <div class="material-info">
+                            <h6>Resumos de Anatomia</h6>
+                            <p>Felipe Almeida</p>
+                            <p>Há 2 horas</p>
+                        </div>
+                    </div>
+                    
+                    <div class="material-item">
+                        <div class="folder-icon"><i class="bi bi-folder-fill"></i></div>
+                        <div class="material-info">
+                            <h6>Apostila de Introdução ao Direito</h6>
+                            <p>Há 1 dia</p>
+                        </div>
+                    </div>
+
+                    <div class="material-item">
+                        <div class="folder-icon"><i class="bi bi-folder-fill"></i></div>
+                        <div class="material-info">
+                            <h6>Artigo sobre Teorias da Personalidade</h6>
+                            <p>Carlos Mendes</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-postar w-100 mt-3 py-2 text-uppercase fs-6">+ POSTAR AULA VOLUNTÁRIA</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="sh-footer mt-5 pt-5 pb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5 class="logo-text mb-3 fs-3"><span class="text-saber">Saber</span><span class="text-hub">Hub</span></h5>
+                    <p class="text-muted" style="font-size: 0.9rem;">
+                        Conectando conhecimento e pessoas. Nossa plataforma é dedicada a centralizar cursos, materiais educacionais gratuitos e oportunidades de voluntariado.
+                    </p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="me-2" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="me-2" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="me-2" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="me-2" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6 class="footer-title">Navegação</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">Início</a></li>
+                        <li><a href="#">Sobre o Projeto</a></li>
+                        <li><a href="#">Cursos em Destaque</a></li>
+                        <li><a href="#">Materiais Recentes</a></li>
+                        <li><a href="#">Seja um Voluntário</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h6 class="footer-title">Suporte e Ajuda</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">Central de Ajuda (FAQ)</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Diretrizes da Comunidade</a></li>
+                        <li><a href="#">Fale Conosco</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h6 class="footer-title">Fique por dentro</h6>
+                    <p class="text-muted" style="font-size: 0.9rem;">Receba novidades sobre novos cursos e materiais diretamente no seu e-mail.</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Seu melhor e-mail" aria-label="Seu e-mail">
+                        <button class="btn btn-postar" type="button" style="padding: 8px 15px;"><i class="bi bi-send"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="mt-4 mb-3 border-secondary" style="opacity: 0.2;">
+
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="text-muted mb-0" style="font-size: 0.85rem;">&copy; 2026 SaberHub. Todos os direitos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+                    <p class="text-muted mb-0" style="font-size: 0.85rem;">Feito com <i class="bi bi-heart-fill text-danger"></i> para a educação.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="btnVoltarTopo" title="Voltar ao topo">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.getElementById('track');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const cards = document.querySelectorAll('.cat-card-wrapper');
+            const dotsContainer = document.getElementById('dotsContainer');
+            
+            let currentIndex = 0;
+            const totalCards = cards.length;
+            
+            function getCardsVisible() {
+                if (window.innerWidth <= 480) return 1;
+                if (window.innerWidth <= 768) return 2;
+                return 4;
+            }
+
+            let cardsVisible = getCardsVisible();
+            let maxIndex = totalCards - cardsVisible;
+
+            function updateDots() {
+                dotsContainer.innerHTML = '';
+                const totalDots = maxIndex + 1;
+                for (let i = 0; i < totalDots; i++) {
+                    const dot = document.createElement('span');
+                    dot.classList.add('dot');
+                    if (i === currentIndex) dot.classList.add('active');
+                    dot.addEventListener('click', () => goToSlide(i));
+                    dotsContainer.appendChild(dot);
+                }
+            }
+
+            function updateCarousel() {
+                const cardWidth = cards[0].offsetWidth;
+                const gap = 20; 
+                track.style.transform = `translateX(-${currentIndex * (cardWidth + gap)}px)`;
+                
+                document.querySelectorAll('.dot').forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+
+            function goToSlide(index) {
+                currentIndex = index;
+                updateCarousel();
+            }
+
+            function moveNext() {
+                if (currentIndex < maxIndex) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0;
+                }
+                updateCarousel();
+            }
+
+            function movePrev() {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                } else {
+                    currentIndex = maxIndex;
+                }
+                updateCarousel();
+            }
+
+            nextBtn.addEventListener('click', () => { moveNext(); resetInterval(); });
+            prevBtn.addEventListener('click', () => { movePrev(); resetInterval(); });
+
+            window.addEventListener('resize', () => {
+                cardsVisible = getCardsVisible();
+                maxIndex = Math.max(0, totalCards - cardsVisible);
+                if (currentIndex > maxIndex) currentIndex = maxIndex;
+                updateDots();
+                updateCarousel();
+            });
+
+            let autoPlayInterval = setInterval(moveNext, 3500);
+
+            function resetInterval() {
+                clearInterval(autoPlayInterval);
+                autoPlayInterval = setInterval(moveNext, 3500);
+            }
+
+            updateDots();
+            updateCarousel();
+
+            const btnTopo = document.getElementById('btnVoltarTopo');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    btnTopo.classList.add('mostrar');
+                } else {
+                    btnTopo.classList.remove('mostrar');
+                }
+            });
+
+            btnTopo.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
