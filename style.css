@@ -14,7 +14,9 @@ body {
     background-color: #fdfdfd;
 }
 
-/* --- ESTILOS DO HEADER (Mantidos os originais) --- */
+/* =========================================================
+   HEADER & NAV (Globais - Usado em todas as páginas)
+   ========================================================= */
 .logo-container { text-align: center; padding: 2rem 0; }
 .logo-text { font-size: 2.5rem; font-weight: 700; margin-bottom: 0; line-height: 1; }
 .text-saber { color: #007bc0; }
@@ -22,10 +24,17 @@ body {
 .logo-subtitle { font-size: 0.85rem; letter-spacing: 1.5px; color: #666; text-transform: uppercase; }
 
 .top-nav { border-top: 1px solid #eaeaea; border-bottom: 1px solid #eaeaea; padding: 10px 0; }
-.nav-link-custom { color: var(--sh-gray); font-weight: 500; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+.nav-link-custom { color: var(--sh-gray); font-weight: 500; text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color 0.3s;}
+.nav-link-custom:hover { color: var(--sh-blue); }
 .btn-postar { background-color: #4a90e2; color: white; font-weight: 500; border-radius: 6px; padding: 8px 20px; border: none; transition: background-color 0.3s; }
 .btn-postar:hover { background-color: #357abd; color: white; }
 
+
+/* =========================================================
+   PÁGINA: SOBRE O PROJETO (StartProject.html)
+   ========================================================= */
+
+/* Cards Coloridos Superiores */
 .feature-card {
     border: 1px solid #eaeaea;
     border-radius: 8px;
@@ -57,18 +66,19 @@ body {
 }
 .card-body-custom p { margin: 0; font-size: 0.9rem; color: #666; line-height: 1.5; }
 
-
+/* CORREÇÃO DO BUG: Seção da Unex e Imagem dos Estudantes */
 .unex-image-wrapper {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     height: 100%;
-    min-height: 300px; 
-    max-width: 80%;
+    width: 100%; /* Corrigido de max-width: 80% para preencher todo o espaço disponível */
+    min-height: 350px;
     display: flex;
 }
 .unex-image-wrapper img {
     width: 100%;
+    height: 100%; /* Garante que a imagem preencha o contêiner */
     object-fit: cover;
     object-position: center;
 }
@@ -104,7 +114,91 @@ body {
     box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
 }
 
-/* Botão Voltar ao Topo */
+
+/* =========================================================
+   PÁGINA: HOME / INDEX (Index.html) - Estilos Restaurados
+   ========================================================= */
+
+.hero-section { padding: 3rem 0; }
+.hero-title { font-weight: 700; font-size: 2.2rem; }
+.hero-subtitle { color: var(--sh-gray); font-size: 1rem; margin-bottom: 2rem; }
+
+.search-wrapper { max-width: 600px; margin: 0 auto; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-radius: 8px; overflow: hidden; border: 1px solid #eaeaea; }
+.search-wrapper input { border: none; padding: 15px 20px; box-shadow: none !important; }
+.search-wrapper .btn-search { background-color: var(--sh-green); color: white; border: none; padding: 0 25px; transition: background-color 0.3s; }
+.search-wrapper .btn-search:hover { background-color: #4cae4c; }
+
+/* Carrossel de Categorias */
+.carousel-wrapper { position: relative; padding: 0 40px; }
+.carousel-track-container { overflow: hidden; width: 100%; }
+.carousel-track { display: flex; gap: 20px; transition: transform 0.4s ease-in-out; }
+.cat-card-wrapper { flex: 0 0 calc(25% - 15px); min-width: calc(25% - 15px); }
+@media (max-width: 768px) { .cat-card-wrapper { flex: 0 0 calc(50% - 10px); min-width: calc(50% - 10px); } }
+@media (max-width: 480px) { .cat-card-wrapper { flex: 0 0 100%; min-width: 100%; } }
+
+.cat-card { border: 1px solid #eaeaea; border-radius: 8px; overflow: hidden; text-align: center; height: 100%; background: #fff; transition: transform 0.2s, box-shadow 0.2s; }
+.cat-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+.cat-img-box { height: 140px; width: 100%; overflow: hidden; }
+.cat-img-box img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+
+.cat-medicina h5 { color: #2980b9; font-weight: 600; margin-top: 15px; }
+.cat-direito h5 { color: #2e7d32; font-weight: 600; margin-top: 15px; }
+.cat-psicologia h5 { color: #ef6c00; font-weight: 600; margin-top: 15px; }
+.cat-arquitetura h5 { color: #0277bd; font-weight: 600; margin-top: 15px; }
+.cat-sistemas h5 { color: #8e44ad; font-weight: 600; margin-top: 15px; }
+.cat-card p { font-size: 0.85rem; color: #666; padding: 0 10px 15px; }
+
+.btn-carousel { position: absolute; top: 50%; transform: translateY(-50%); background: white; border: 1px solid #eaeaea; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); color: #555; cursor: pointer; z-index: 10; transition: all 0.3s; }
+.btn-carousel:hover { background: #f8f9fa; color: #333; }
+.btn-prev { left: 0; }
+.btn-next { right: 0; }
+
+.carousel-dots { display: flex; justify-content: center; gap: 5px; margin: 20px 0; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background-color: #ddd; cursor: pointer; transition: background-color 0.3s;}
+.dot.active { background-color: var(--sh-green); }
+
+/* Banner Secundário (Home) */
+.cta-banner { background: linear-gradient(135deg, #66bb6a, #43a047); border-radius: 12px; color: white; padding: 20px 30px; display: flex; align-items: center; justify-content: space-between; margin-top: 2rem; position: relative; overflow: hidden; }
+.cta-icon { background: rgba(255,255,255,0.2); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-right: 15px; }
+
+/* Listagens de Aulas e Materiais */
+.section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 1px solid #eaeaea; padding-bottom: 10px; }
+.section-header h4 { font-weight: 600; font-size: 1.2rem; margin: 0; }
+.link-ver-todos { color: #4a90e2; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
+.link-ver-todos:hover { color: #357abd; }
+
+.aula-card { border: 1px solid #eaeaea; border-radius: 8px; overflow: hidden; margin-bottom: 15px; }
+.aula-header { padding: 15px; display: flex; align-items: center; gap: 15px; color: white; }
+.aula-header h6 { margin: 0; font-size: 1rem; font-weight: 600; line-height: 1.2; }
+
+.bg-matematica { background-color: #5fa8d3; }
+.bg-direito { background-color: #7cb342; }
+.bg-psicologia { background-color: #f6a821; }
+
+.aula-body { padding: 15px; }
+.aula-body p { font-size: 0.85rem; color: #555; margin-bottom: 15px; min-height: 40px; }
+.aula-author { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: #777;}
+.aula-author img { width: 24px; height: 24px; border-radius: 50%; }
+
+.material-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; }
+.folder-icon { background-color: #81c784; color: white; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+.material-info h6 { margin: 0 0 3px; font-size: 0.95rem; font-weight: 500;}
+.material-info p { margin: 0; font-size: 0.8rem; color: #888; }
+
+/* Rodapé (Footer) */
+.sh-footer { background-color: #f8f9fa; border-top: 1px solid #eaeaea; color: var(--sh-dark); }
+.footer-title { font-weight: 600; margin-bottom: 1.2rem; color: var(--sh-dark); }
+.footer-links { padding: 0; list-style: none; }
+.footer-links li { margin-bottom: 0.6rem; }
+.footer-links a { color: #6c757d; text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease, padding-left 0.3s ease; }
+.footer-links a:hover { color: #007bc0; padding-left: 5px; }
+.social-links a { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background-color: #e9ecef; color: #495057; border-radius: 50%; text-decoration: none; transition: all 0.3s; }
+.social-links a:hover { background-color: #007bc0; color: white; transform: translateY(-3px); }
+
+
+/* =========================================================
+   ELEMENTOS FLUTUANTES
+   ========================================================= */
 #btnVoltarTopo {
     position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px;
     border-radius: 50%; background-color: var(--sh-blue); color: white;
