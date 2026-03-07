@@ -218,3 +218,49 @@ body {
     background-color: #2980b9;
     transform: translateY(-5px);
 }
+/* Layout de Três Colunas */
+.feed-container {
+    display: grid;
+    grid-template-columns: 250px 1fr 300px; /* Define o tamanho da primeira coluna */
+    gap: 20px;
+    padding-top: 20px;
+}
+
+/* Menu de Navegação */
+.nav-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-menu li a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px;
+    color: var(--sh-dark);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.nav-menu li a:hover, .nav-menu li a.active {
+    background-color: #eef4fb;
+    color: var(--sh-blue);
+}
+
+/* Esconder colunas em telas pequenas */
+@media (max-width: 992px) {
+    .feed-container {
+        grid-template-columns: 1fr;
+    }
+    .sidebar-left, .sidebar-right {
+        display: none;
+    }
+}
+
+.logo-container-perfil { 
+    padding: 0.5rem 0 !important; 
+}
+.logo-img-perfil { 
+    max-width: 160px !important; 
+}
