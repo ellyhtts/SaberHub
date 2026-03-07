@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     modalInstance.hide();
                 }
 
-                window.location.href = "upload.html"; 
+                window.location.href = "feed.html"; 
 
             } else {
                 alert("E-mail ou senha incorretos. Tente novamente.");
