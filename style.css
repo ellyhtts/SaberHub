@@ -12,6 +12,7 @@ body {
     color: var(--sh-dark);
     position: relative;
     background-color: #fdfdfd;
+    margin: 0;
 }
 
 
@@ -21,12 +22,11 @@ body {
     height: auto;
     transition: transform 0.3s ease;
 }
-
 .logo-img:hover {
     transform: scale(1.02); 
 }
 
-.top-nav { border-top: 1px solid #eaeaea; border-bottom: 1px solid #eaeaea; padding: 10px 0; }
+.top-nav { border-top: 1px solid #eaeaea; border-bottom: 1px solid #eaeaea; padding: 10px 0; background-color: #fff; }
 .nav-link-custom { color: var(--sh-gray); font-weight: 500; text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color 0.3s;}
 .nav-link-custom:hover { color: var(--sh-blue); }
 .btn-postar { background-color: #4a90e2; color: white; font-weight: 500; border-radius: 6px; padding: 8px 20px; border: none; transition: background-color 0.3s; }
@@ -190,4 +190,7 @@ body {
     z-index: 1000;
 }
 #btnVoltarTopo.mostrar { opacity: 1; visibility: visible; }
-#btnVoltarTopo:hover { background-color: #2980b9; transform: translateY(-5px); }
+#btnVoltarTopo:hover {
+    background-color: #2980b9;
+    transform: translateY(-5px);
+}

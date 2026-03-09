@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const senhaCorreta = "hackathon2026";
 
             if (email === usuarioCorreto && password === senhaCorreta) {
-                alert("Login realizado com sucesso! Bem-vindo ao SaberHub.");
+                alert("Login realizado com sucesso! Bem-vindo ao portal de voluntariado.");
                 
                 const modalElement = document.getElementById('loginModal');
                 

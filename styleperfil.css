@@ -1,0 +1,107 @@
+:root {
+    --sh-blue: #3498db;
+    --sh-green: #5cb85c;
+    --sh-orange: #fca830;
+    --sh-dark: #333333;
+    --sh-gray: #777777;
+    --sh-light-bg: #f8f9fa;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--sh-dark);
+    background-color: #fdfdfd;
+    margin: 0;
+}
+
+/* Cabeçalho Compacto */
+.logo-container-perfil {
+    text-align: center;
+    padding: 0.5rem 0 !important;
+}
+
+.logo-img-perfil {
+    max-width: 160px !important;
+    height: auto;
+}
+
+/* Layout de Três Colunas */
+.feed-container {
+    display: grid;
+    grid-template-columns: 250px 1fr 300px;
+    gap: 20px;
+    padding-top: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Navegação Lateral */
+.nav-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-menu li a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px;
+    color: var(--sh-dark);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.nav-menu li a:hover, .nav-menu li a.active {
+    background-color: #eef4fb;
+    color: var(--sh-blue);
+}
+
+/* Cards de Perfil */
+.perfil-card {
+    background: white;
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.avatar-circle {
+    width: 100px;
+    height: 100px;
+    background-color: #f0f2f5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--sh-gray);
+    border: 3px solid white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.stat-badge {
+    background: var(--sh-light-bg);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.stat-number {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--sh-blue);
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--sh-gray);
+}
+
+@media (max-width: 992px) {
+    .feed-container { grid-template-columns: 1fr; }
+    .sidebar-left, .sidebar-right { display: none; }
+}
